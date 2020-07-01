@@ -102,9 +102,9 @@ python <main.py directory> -fd <Face detection model name directory> -fl <Facial
 ```
 python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-detection-adas-binary-0001\FP32-INT1\face-detection-adas-binary-0001" -fl "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\landmarks-regression-retail-0009\FP16\landmarks-regression-retail-0009" -hp "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\head-pose-estimation-adas-0001\FP16\head-pose-estimation-adas-0001" -ge "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\gaze-estimation-adas-0002\FP16\gaze-estimation-adas-0002"  -i C:\Users\Acer\Desktop\openvino\starter\bin\demo.mp4 -l "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\inference_engine\bin\intel64\Release\cpu_extension_avx2.dll" -d CPU
 ```
-![Image_Demo_1](./images/image_1)
+![Image_Demo_1](./images/image_1.jpg)
 
-![Image_Demo_2](./images/image_2)
+![Image_Demo_2](./images/image_2.jpg)
 ## Benchmarks
 ## Results
 ### Model Performance
