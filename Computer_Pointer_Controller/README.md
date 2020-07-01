@@ -55,7 +55,7 @@ python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\mode
 
 ## Arguments Documentation 
 
-Following are commanda line arguments that can use for while running the main.py file ` python main.py `:-
+Following are command line arguments that can be used while running the main.py file ` python main.py `
 ```
   1. -h                : Information about all the command line arguments.
   2. -fd    (required) : Path to a face detection model xml file.
