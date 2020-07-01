@@ -63,10 +63,10 @@ Following are command line arguments that can be used while running the main.py 
   3. -hp    (required) : Path to a head pose estimation model xml file.
   4. -ge    (required) : Path to a gaze estimation model xml file.
   5. -i     (required) : Path to image or video or CAM.
-  6. -d     (optional) : Target device to infer the video file on the model. Suppoerted devices are: CPU, GPU,FPGA (For running on FPGA used HETERO:FPGA,CPU), MYRIAD.
+  6. -d     (optional) : Target device to infer the video file on the model. Supported devices are: CPU, GPU,FPGA (For running on FPGA used HETERO:FPGA,CPU), MYRIAD.
   7. -l     (optional) : Absolute path of cpu extension if some layers of models are not supported on the device.
   9. -pt    (optional) : Probability threshold for detections filtering.
-  8. -flag  (optional) : Specify the flags from fd, fld, hp, ge if you want to visualize the output of corresponding models of each frame (write flags with space seperation. Ex:- -flags fd fld hp).
+  8. -flag  (optional) : Specify the flags from fd, fl, hp, ge if you want to visualize the output of corresponding models of each frame (write flags with space seperation. Ex: -flags fd fl hp).
 
 ```
 
