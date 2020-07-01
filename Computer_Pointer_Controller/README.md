@@ -106,7 +106,7 @@ python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-
 
 ![Image_Demo_2](images/image_2.JPG)
 ## Benchmarks
-## Results
+### Results
 ### Model Performance
 
 #### First
