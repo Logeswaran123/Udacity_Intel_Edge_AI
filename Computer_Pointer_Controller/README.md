@@ -136,12 +136,13 @@ python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-
 |Model|	Type|Load Time in Sec|
 |---|---|---|
 |face-detection-adas-binary-0001| INT1 |1019.201 ms|
-|landmarks-regression-retail-0009 | FP16 | 166.114 ms|
-|head-pose-estimation-adas-0001 | FP16 |239.155 ms|
-|gaze-estimation-adas-0002 | FP16 | 364.584 ms|
+|landmarks-regression-retail-0009 | FP32 | 166.114 ms|
+|head-pose-estimation-adas-0001 | FP32 |239.155 ms|
+|gaze-estimation-adas-0002 | FP32 | 364.584 ms|
 
-## Results
-*TODO:* Discuss the benchmark results and explain why you are getting the results you are getting. For instance, explain why there is difference in inference time for FP32, FP16 and INT8 models.
+* The FP32 model has higher precision than FP16 model, hence it provides better accuracy.
+* Here in my case, the FP32 model load times are lower than the FP16 load times. This is contrary to what one might assume.
+* Here, I have not tested on other hardwares (VPU/GPU/Hybrids) and even then the inference time is good in Intel i7 CPU.
 
 ## Stand Out Suggestions
 ### Edge Cases
