@@ -104,6 +104,42 @@ python <main.py directory> -fd <Face detection model name directory> -fl <Facial
 python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-detection-adas-binary-0001\FP32-INT1\face-detection-adas-binary-0001" -fl "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\landmarks-regression-retail-0009\FP16\landmarks-regression-retail-0009" -hp "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\head-pose-estimation-adas-0001\FP16\head-pose-estimation-adas-0001" -ge "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\gaze-estimation-adas-0002\FP16\gaze-estimation-adas-0002"  -i C:\Users\Acer\Desktop\openvino\starter\bin\demo.mp4 -l "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\inference_engine\bin\intel64\Release\cpu_extension_avx2.dll" -d CPU
 ```
 
+## Results
+### Model Performance
+
+#### First
+```
+python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-detection-adas-binary-0001\INT1\face-detection-adas-binary-0001" -fl "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\landmarks-regression-retail-0009\FP16\landmarks-regression-retail-0009" -hp "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\head-pose-estimation-adas-0001\FP16\head-pose-estimation-adas-0001" -ge "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\gaze-estimation-adas-0002\FP16\gaze-estimation-adas-0002"  -i C:\Users\Acer\Desktop\openvino\starter\bin\demo.mp4 -d CPU
+```
+
+* Total loading time: 1901.859 ms
+* Total Inference time :  90.7 seconds
+* FPS :  0.6504961411245865 frame/second
+
+|Model|	Type|Load Time in Sec|
+|---|---|---|
+|face-detection-adas-binary-0001| INT1 |1061.296 ms|
+|landmarks-regression-retail-0009 | FP16 | 194.130 ms|
+|head-pose-estimation-adas-0001 | FP16 |281.188 ms|
+|gaze-estimation-adas-0002 | FP16 | 361.235 ms|
+
+#### Second
+```
+python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-detection-adas-binary-0001\INT1\face-detection-adas-binary-0001" -fl "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\landmarks-regression-retail-0009\FP32\landmarks-regression-retail-0009" -hp "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\head-pose-estimation-adas-0001\FP32\head-pose-estimation-adas-0001" -ge "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\gaze-estimation-adas-0002\FP32\gaze-estimation-adas-0002"  -i C:\Users\Acer\Desktop\openvino\starter\bin\demo.mp4 -d CPU
+```
+
+* Total loading time: 1790.558 ms
+* Total Inference time :  90.6 seconds
+* FPS :  0.6512141280353201 frame/second
+
+|Model|	Type|Load Time in Sec|
+|---|---|---|
+|face-detection-adas-binary-0001| INT1 |1019.201 ms|
+|landmarks-regression-retail-0009 | FP16 | 166.114 ms|
+|head-pose-estimation-adas-0001 | FP16 |239.155 ms|
+|gaze-estimation-adas-0002 | FP16 | 364.584 ms|
+
+
 ## Documentation
 *TODO:* Include any documentation that users might need to better understand your project code. For instance, this is a good place to explain the command line arguments that your project supports.
 
