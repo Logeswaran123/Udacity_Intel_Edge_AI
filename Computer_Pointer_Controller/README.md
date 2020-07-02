@@ -69,7 +69,6 @@ Following are command line arguments that can be used while running the main.py 
   8. -pt    (optional) : Probability threshold for detections.
   9. -flag  (optional) : Visualize different model output on frame (fd: Face Detection Model, fl: Facial Landmark Detection Model, 
                          hp: Head Pose Estimation Model, ge: Gaze Estimation Model).
-
 ```
 
 ## Running the App
