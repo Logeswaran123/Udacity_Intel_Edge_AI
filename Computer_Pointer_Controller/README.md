@@ -18,9 +18,9 @@ Requirements based on [OpenVino toolkit](https://docs.openvinotoolkit.org/latest
 
 Refer the [Link](https://docs.openvinotoolkit.org/latest/_docs_install_guides_installing_openvino_windows.html) for detailed installation.
 
-##### Initialize openVINO Environment 
+##### Initialize OpenVINO Environment 
 
-* For windows: Open Command Prompt as Admin
+* For windows (Command prompt):
 ```
 cd C:\Program Files (x86)\IntelSWTools\openvino\bin\
 ```
@@ -28,7 +28,7 @@ cd C:\Program Files (x86)\IntelSWTools\openvino\bin\
 setupvars.bat
 ```
 
-### Downloading Models Inference Files
+### Models File (Download from provided link)
 
 - [Face Detection Model](https://docs.openvinotoolkit.org/latest/_models_intel_face_detection_adas_binary_0001_description_face_detection_adas_binary_0001.html)
 - [Facial Landmarks Detection Model](https://docs.openvinotoolkit.org/latest/_models_intel_landmarks_regression_retail_0009_description_landmarks_regression_retail_0009.html)
@@ -38,69 +38,72 @@ setupvars.bat
 #### Installation commands
 Face detection model
 ```
-python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\downloader.py" --name "face-detection-adas-binary-0001" -o "your directory"\models 
+python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\downloader.py" --name "face-detection-adas-binary-0001" -o "<user directory>\models" 
 ```
 Facial landmarks detection model
 ```
-python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\downloader.py" --name "landmarks-regression-retail-0009" -o "your directory"\models
+python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\downloader.py" --name "landmarks-regression-retail-0009" -o "<user directory>\models"
 ```
 Head Pose Estimation Model
 ```
-python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\downloader.py" --name "head-pose-estimation-adas-0001" -o "your directory"\models
+python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\downloader.py" --name "head-pose-estimation-adas-0001" -o "<user directory>\models"
 ```
 Gaze Estimation Model
 ```
-python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\downloader.py" --name "gaze-estimation-adas-0002" -o "your directory"\models
+python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\downloader.py" --name "gaze-estimation-adas-0002" -o "<user directory>\models"
 ```
 
-## Arguments Documentation 
+## Command Line Arguments
 
 Following are command line arguments that can be used while running the main.py file ` python main.py `
 ```
   1. -h                : Information about all the command line arguments.
   2. -fd    (required) : Path to a face detection model xml file.
-  3. -fl    (required) : Path to a facial landmarks detection model xml.
+  3. -fl    (required) : Path to a facial landmarks detection model xml file.
   3. -hp    (required) : Path to a head pose estimation model xml file.
   4. -ge    (required) : Path to a gaze estimation model xml file.
   5. -i     (required) : Path to image or video or CAM.
-  6. -d     (optional) : Target device to infer the video file on the model. Supported devices are: CPU, GPU,FPGA (For running on FPGA used HETERO:FPGA,CPU), MYRIAD.
-  7. -l     (optional) : Absolute path of cpu extension if some layers of models are not supported on the device.
-  9. -pt    (optional) : Probability threshold for detections filtering.
-  8. -flag  (optional) : Specify the flags from fd, fl, hp, ge if you want to visualize the output of corresponding models of each frame (write flags with space seperation. Ex: -flags fd fl hp).
+  6. -d     (optional) : Specify the target device (CPU, GPU, FPGA, VPU).
+  7. -l     (optional) : Targeted custom layers (CPU Extension path).
+  9. -pt    (optional) : Probability threshold for detections.
+  8. -flag  (optional) : Visualize different model output on frame (fd: Face Detection Model, fl: Facial Landmark Detection Model, 
+                         hp: Head Pose Estimation Model, ge: Gaze Estimation Model).
 
 ```
 
-## Running the app
+## Running the App
 
-- Run on CPU 
+Change the device (-d) arguments for different hardwares.
 
-```
-python <main.py directory> -fd <Face detection model name directory> -fl <Facial landmark detection model name directory> -hp <head pose estimation model name directory> -ge <Gaze estimation model name directory> -i <input video directory> -l <CPU extension> -d CPU
-```
-
-- Run on GPU 
+- CPU
 
 ```
-python <main.py directory> -fd <Face detection model name directory> -fl <Facial landmark detection model name directory> -hp <head pose estimation model name directory> -ge <Gaze estimation model name directory> -i <input video directory> -d GPU
+python <main.py directory> -fd "<Face detection model name directory>" -fl "<Facial landmark detection model name directory>" -hp "<head pose estimation model name directory>" -ge "<Gaze estimation model name directory>" -i "<input video directory>" -l "<CPU extension>" -d CPU
 ```
 
-- Run on FPGA 
+- GPU
 
 ```
-python <main.py directory> -fd <Face detection model name directory> -fl <Facial landmark detection model name directory> -hp <head pose estimation model name directory> -ge <Gaze estimation model name directory> -i <input video directory> -d HETERO:FPGA,CPU
+python <main.py directory> -fd "<Face detection model name directory>" -fl "<Facial landmark detection model name directory>" -hp "<head pose estimation model name directory>" -ge "<Gaze estimation model name directory>" -i "<input video directory>" -d GPU
 ```
 
-- Run on NSC2
+- FPGA 
 
 ```
-python <main.py directory> -fd <Face detection model name directory> -fl <Facial landmark detection model name directory> -hp <head pose estimation model name directory> -ge <Gaze estimation model name directory> -i <input video directory> -d MYRIAD
+python <main.py directory> -fd "<Face detection model name directory>" -fl "<Facial landmark detection model name directory>" -hp "<head pose estimation model name directory>" -ge "<Gaze estimation model name directory>" -i "<input video directory>" -d HETERO:FPGA,CPU
+```
+
+- NSC2
+
+```
+python <main.py directory> -fd "<Face detection model name directory>" -fl "<Facial landmark detection model name directory>" -hp "<head pose estimation model name directory>" -ge "<Gaze estimation model name directory>" -i "<input video directory>" -d MYRIAD
 ```
 
 ## Demo
 ### Running on CPU
 
 ```
-python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-detection-adas-binary-0001\FP32-INT1\face-detection-adas-binary-0001" -fl "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\landmarks-regression-retail-0009\FP16\landmarks-regression-retail-0009" -hp "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\head-pose-estimation-adas-0001\FP16\head-pose-estimation-adas-0001" -ge "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\gaze-estimation-adas-0002\FP16\gaze-estimation-adas-0002"  -i C:\Users\Acer\Desktop\openvino\starter\bin\demo.mp4 -l "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\inference_engine\bin\intel64\Release\cpu_extension_avx2.dll" -d CPU
+python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-detection-adas-binary-0001\FP32-INT1\face-detection-adas-binary-0001" -fl "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\landmarks-regression-retail-0009\FP16\landmarks-regression-retail-0009" -hp "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\head-pose-estimation-adas-0001\FP16\head-pose-estimation-adas-0001" -ge "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\gaze-estimation-adas-0002\FP16\gaze-estimation-adas-0002"  -i demo.mp4 -l "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\inference_engine\bin\intel64\Release\cpu_extension_avx2.dll" -d CPU
 ```
 ![Image_Demo_1](result/resultFrame_1.JPG)
 
@@ -111,14 +114,14 @@ python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-
 
 #### First
 ```
-python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-detection-adas-binary-0001\INT1\face-detection-adas-binary-0001" -fl "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\landmarks-regression-retail-0009\FP16\landmarks-regression-retail-0009" -hp "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\head-pose-estimation-adas-0001\FP16\head-pose-estimation-adas-0001" -ge "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\gaze-estimation-adas-0002\FP16\gaze-estimation-adas-0002"  -i C:\Users\Acer\Desktop\openvino\starter\bin\demo.mp4 -d CPU
+python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-detection-adas-binary-0001\INT1\face-detection-adas-binary-0001" -fl "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\landmarks-regression-retail-0009\FP16\landmarks-regression-retail-0009" -hp "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\head-pose-estimation-adas-0001\FP16\head-pose-estimation-adas-0001" -ge "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\gaze-estimation-adas-0002\FP16\gaze-estimation-adas-0002"  -i demo.mp4 -d CPU
 ```
 
 * Total loading time: 1901.859 ms
 * Total Inference time :  90.7 seconds
 * FPS :  0.6504961411245865 frame/second
 
-|Model|	Type|Load Time in Sec|
+|Model|	Type|Load Time|
 |---|---|---|
 |face-detection-adas-binary-0001| INT1 |1061.296 ms|
 |landmarks-regression-retail-0009 | FP16 | 194.130 ms|
@@ -134,7 +137,7 @@ python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-
 * Total Inference time :  90.6 seconds
 * FPS :  0.6512141280353201 frame/second
 
-|Model|	Type|Load Time in Sec|
+|Model|	Type|Load Time|
 |---|---|---|
 |face-detection-adas-binary-0001| INT1 |1019.201 ms|
 |landmarks-regression-retail-0009 | FP32 | 166.114 ms|
@@ -149,3 +152,4 @@ python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-
 ### Edge Cases
 * If the lighting of the feed is not proper, the face may not be detected and so the model might not properly find the gaze. Hence, the mouse pointer stays at place.
 * If there are multiple faces in the input feed, then the first detected face is taken for control over the mouse pointer.
+* Sometimes, the mouse movement might be different compared to the expected movement.
