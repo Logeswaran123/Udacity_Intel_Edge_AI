@@ -73,7 +73,7 @@ Following are command line arguments that can be used while running the main.py 
 
 ## Running the App
 
-Change the device (-d) arguments for different hardwares.
+Change the device (-d) argument for different hardwares.
 
 - CPU
 
