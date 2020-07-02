@@ -59,16 +59,15 @@ python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\mode
 
 Following are command line arguments that can be used while running the main.py file ` python main.py `
 ```
-  1. -h                : Information about all the command line arguments.
-  2. -fd    (required) : Path to a face detection model xml file.
-  3. -fl    (required) : Path to a facial landmarks detection model xml file.
+  1. -fd    (required) : Path to a face detection model xml file.
+  2. -fl    (required) : Path to a facial landmarks detection model xml file.
   3. -hp    (required) : Path to a head pose estimation model xml file.
   4. -ge    (required) : Path to a gaze estimation model xml file.
   5. -i     (required) : Path to image or video or CAM.
   6. -d     (optional) : Specify the target device (CPU, GPU, FPGA, VPU).
   7. -l     (optional) : Targeted custom layers (CPU Extension path).
-  9. -pt    (optional) : Probability threshold for detections.
-  8. -flag  (optional) : Visualize different model output on frame (fd: Face Detection Model, fl: Facial Landmark Detection Model, 
+  8. -pt    (optional) : Probability threshold for detections.
+  9. -flag  (optional) : Visualize different model output on frame (fd: Face Detection Model, fl: Facial Landmark Detection Model, 
                          hp: Head Pose Estimation Model, ge: Gaze Estimation Model).
 
 ```
