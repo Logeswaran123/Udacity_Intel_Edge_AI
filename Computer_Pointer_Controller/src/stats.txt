@@ -1,8 +1,0 @@
-90.6
-0.6512141280353201
-All model loading times
-Face Detection model load time: 1019.201 ms
-Facial Landmarks model load time: 166.114 ms
-Head Pose Estimation model load time: 239.155 ms
-Gaze Estimation model load time: 364.584 ms
-Total: 1790.558 ms
