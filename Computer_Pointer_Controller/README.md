@@ -18,6 +18,8 @@ Requirements based on [OpenVino toolkit](https://docs.openvinotoolkit.org/latest
 
 Refer the [Link](https://docs.openvinotoolkit.org/latest/_docs_install_guides_installing_openvino_windows.html) for detailed installation.
 
+Note: If the above mentioned requirement is not met, Intel DevCloud can also be used.
+
 ##### Initialize OpenVINO Environment 
 
 * For windows (Command prompt):
