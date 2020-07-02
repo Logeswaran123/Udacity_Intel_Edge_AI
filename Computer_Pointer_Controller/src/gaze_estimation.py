@@ -66,7 +66,7 @@ class GazeEstimationClass:
     
 
     def preprocess_input(self, left_eye, right_eye):
-        
+        # model requires shape [1x3x60x60]
         left_eye_image = cv2.resize(left_eye, (60, 60))
         left_eye_image = left_eye_image.transpose((2, 0, 1))
         left_eye_image = left_eye_image.reshape(1, *left_eye_image.shape)
