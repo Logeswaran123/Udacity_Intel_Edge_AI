@@ -17,10 +17,6 @@ warnings.filterwarnings("ignore")
 
 
 def build_argparser():
-    """
-    Parse command line arguments.
-    return: command line arguments
-    """
     
     parser = ArgumentParser()
     parser.add_argument("-fd", "--face_detection_model",   required=True, type=str, help="Path to a face detection model xml file")
@@ -107,7 +103,7 @@ def main():
     mouse_controller = MouseController('high', 'fast')
 
     frame_count = 0
-    start_inference_time = time.time()
+    start_time = time.time()
     print("Start inferencing on input feed ")
     
     # Loop through input feed till break
@@ -178,11 +174,16 @@ def main():
             print("Exited")
             break
     
+    input_feeder.close()
+    cv2.destroyAllWindows()
+    
+    # Inference
+    
     print("**********************************************************************")
-    inference_time = round(time.time() - start_inference_time, 1)
+    inference_time = round(time.time() - start_time, 1)
     fps = int(frame_count) / inference_time
-    print("Total inference time {} seconds".format(inference_time))
-    print("FPS {:.3f} frames/second".format(fps))
+    print("Total Inference Time: {} seconds".format(inference_time))
+    print("FPS: {:.3f} frames/second".format(fps))
     print("Input feed ended")
     print("**********************************************************************")
     
@@ -196,9 +197,8 @@ def main():
         f.write("Head Pose Estimation model load time: {:.3f} ms".format(Headpose_estimation_time) + '\n')
         f.write("Gaze Estimation model load time: {:.3f} ms".format(Gaze_estimation_time) + '\n')
         f.write("Total: {:.3f} ms".format(total_load_time * 1000) + '\n')
-
-    input_feeder.close()
-    cv2.destroyAllWindows()
+    
+    ###################
 
 
 if __name__ == '__main__':
