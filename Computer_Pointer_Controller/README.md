@@ -75,6 +75,36 @@ Change the device (-d) argument for different hardwares. (for example: -d CPU or
 python <main.py directory> -fd "<Face detection model name directory>" -fl "<Facial landmark detection model name directory>" -hp "<head pose estimation model name directory>" -ge "<Gaze estimation model name directory>" -i "<input video directory>" -l "<CPU extension>" -d <device>
 ```
 
+## Structure of directory
+```
+|
+|--bin
+    |--demo.mp4
+|--models
+    |--face-detection-adas-binary-0001
+          |--INT1
+    |--landmarks-regression-retail-0009
+          |--FP16
+          |--FP32
+    |--head-pose-estimation-adas-0001
+          |--FP16
+          |--FP32
+    |--gaze-estimation-adas-0002
+          |--FP16
+          |--FP32
+|--src
+    |--main.py
+    |--input_feeder.py
+    |--mouse_controller.py
+    |--face_detection.py
+    |--facial_landmarks_detection.py
+    |--head-pose-estimation.py
+    |--gaze_estimation.py
+|--results
+    |--image_1.jpg
+    |--image_2.jpg
+```
+
 ## Demonstration
 Use the below command to run the app,
 
@@ -92,7 +122,7 @@ python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-
 I tested all the different performance for different model precisions (FP16/FP32) on CPU device only (since i don't have other devices).
 #### FP16 precision
 ```
-python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-detection-adas-binary-0001\INT1\face-detection-adas-binary-0001" -fl "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\landmarks-regression-retail-0009\FP16\landmarks-regression-retail-0009" -hp "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\head-pose-estimation-adas-0001\FP16\head-pose-estimation-adas-0001" -ge "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\gaze-estimation-adas-0002\FP16\gaze-estimation-adas-0002" -i demo.mp4 -l "cpu_extension_avx2.dll" -d CPU
+python main.py -fd "models\face-detection-adas-binary-0001\INT1\face-detection-adas-binary-0001" -fl "models\landmarks-regression-retail-0009\FP16\landmarks-regression-retail-0009" -hp "models\head-pose-estimation-adas-0001\FP16\head-pose-estimation-adas-0001" -ge "models\gaze-estimation-adas-0002\FP16\gaze-estimation-adas-0002" -i demo.mp4 -l "cpu_extension_avx2.dll" -d CPU
 ```
 
 * Total loading time: 1.9 seconds
@@ -101,13 +131,14 @@ python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-
 
 #### FP32 precision
 ```
-python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-detection-adas-binary-0001\INT1\face-detection-adas-binary-0001" -fl "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\landmarks-regression-retail-0009\FP32\landmarks-regression-retail-0009" -hp "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\head-pose-estimation-adas-0001\FP32\head-pose-estimation-adas-0001" -ge "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\gaze-estimation-adas-0002\FP32\gaze-estimation-adas-0002" -i demo.mp4 -l "cpu_extension_avx2.dll" -d CPU
+python main.py -fd "models\face-detection-adas-binary-0001\INT1\face-detection-adas-binary-0001" -fl "models\landmarks-regression-retail-0009\FP32\landmarks-regression-retail-0009" -hp "models\head-pose-estimation-adas-0001\FP32\head-pose-estimation-adas-0001" -ge "models\gaze-estimation-adas-0002\FP32\gaze-estimation-adas-0002" -i demo.mp4 -l "cpu_extension_avx2.dll" -d CPU
 ```
 
 * Total models loading time: 1.79 seconds
 * Total Inference time :  90.6 seconds
 * FPS :  0.6512141280353201 frames/second
 
+### Inference from results
 * The FP32 model has higher precision than FP16 model, hence it provides better accuracy.
 * Here in my case, the FP32 model load times are lower than the FP16 load times. This is contrary to what one might assume.
 * Here, I have not tested on other hardwares (VPU/GPU/Hybrids) and even then the inference time is good in Intel i7 CPU.
