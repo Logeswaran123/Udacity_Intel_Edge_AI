@@ -100,7 +100,7 @@ python <main.py directory> -fd "<Face detection model name directory>" -fl "<Fac
     |--facial_landmarks_detection.py
     |--head-pose-estimation.py
     |--gaze_estimation.py
-|--results
+|--result
     |--image_1.jpg
     |--image_2.jpg
 ```
