@@ -1,1 +1,1 @@
-# Udacity Intel_Edge AI (OpenVINO)
+# Udacity Intel Edge AI (OpenVINO)
