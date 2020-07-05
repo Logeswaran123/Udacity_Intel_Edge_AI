@@ -92,7 +92,7 @@ python <main.py directory> -fd "<Face detection model name directory>" -fl "<Fac
     |--gaze-estimation-adas-0002
           |--FP16
           |--FP32
-|--src
+|--app
     |--main.py
     |--input_feeder.py
     |--mouse_controller.py
