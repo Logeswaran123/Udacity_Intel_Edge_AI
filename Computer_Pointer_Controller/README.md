@@ -111,9 +111,9 @@ Use the below command to run the app,
 ```
 python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-detection-adas-binary-0001\INT1\face-detection-adas-binary-0001" -fl "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\landmarks-regression-retail-0009\FP16\landmarks-regression-retail-0009" -hp "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\head-pose-estimation-adas-0001\FP16\head-pose-estimation-adas-0001" -ge "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\gaze-estimation-adas-0002\FP16\gaze-estimation-adas-0002"  -i demo.mp4 -l "cpu_extension_avx2.dll" -d CPU
 ```
-![Image_Demo_1](result/resultFrame_1.JPG)
+![Image_Demo_1](result/image_1.JPG)
 
-![Image_Demo_2](result/resultFrame_2.JPG)
+![Image_Demo_2](result/image_2.JPG)
 
 ## Benchmarks
 ### Results
