@@ -1,17 +1,11 @@
-'''
-This is a sample class for a model. You may choose to use it as-is or make any changes to it.
-This has been provided just to give you an idea of how to structure your model class.
-'''
+# Face Detection
 
 import cv2
 from openvino.inference_engine import IENetwork, IECore
-import warnings
-warnings.filterwarnings("ignore")
+
 
 class FaceDetectionClass:
-    '''
-    Class for the Face Detection Model.
-    '''
+    
     def __init__(self, model_name, device, threshold, extensions=None):
         
         self.model_weights = model_name + '.bin'
@@ -49,7 +43,6 @@ class FaceDetectionClass:
         if len(coordinates) == 0:
             return 0, 0
         
-        coordinates = list(map(int, coordinates[0]))
         cropped_face = image[coordinates[1]:coordinates[3], coordinates[0]:coordinates[2]]
         
         return coordinates, cropped_face
@@ -78,15 +71,15 @@ class FaceDetectionClass:
         w, h = image.shape[1], image.shape[0]
         
         for output in outputs:
-            conf = output[2]
-            if conf >= self.threshold:
+            confidence = output[2]
+            if confidence >= self.threshold:
                 xmin = int(output[3] * w)
                 ymin = int(output[4] * h)
                 xmax = int(output[5] * w)
                 ymax = int(output[6] * h)
                 coordinates.append([xmin, ymin, xmax, ymax])
         
-        return coordinates
+        return list(map(int, coordinates[0]))
 
 
 def all_layers_supported(engine, network):
