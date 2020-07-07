@@ -130,7 +130,8 @@ def main():
         
         # Gaze detection
         mouse_coordinate, gaze_vector = ge.predict(left_eye, right_eye, hp_output)
-
+        
+        # Visualize
         if len(visualize_flag) != 0:
             frame_copy = frame.copy()
             
