@@ -81,10 +81,10 @@ class FacialLandmarksClass:
         w, h = image.shape[1], image.shape[0]
         
         # Coordinates of eye
-        left_x  = int(outputs[0] * w)
-        left_y  = int(outputs[1] * h)
-        right_x = int(outputs[2] * w)
-        right_y = int(outputs[3] * h)
+        left_x  = int(outputs[0].tolist()[0][0] * w)
+        left_y  = int(outputs[1].tolist()[0][0] * h)
+        right_x = int(outputs[2].tolist()[0][0] * w)
+        right_y = int(outputs[3].tolist()[0][0] * h)
 
         return (left_x, left_y, right_x, right_y)
 
