@@ -5,15 +5,14 @@ App
 import os
 import cv2
 import time
+from input_feeder import InputFeeder
+from mouse_controller import MouseController
 from face_detection import FaceDetectionClass
 from facial_landmarks_detection import FacialLandmarksClass
 from gaze_estimation import GazeEstimationClass
 from head_pose_estimation import HeadPoseEstimationClass
-from mouse_controller import MouseController
-from input_feeder import InputFeeder
 from argparse import ArgumentParser
-import warnings
-warnings.filterwarnings("ignore")
+
 
 
 def build_argparser():
@@ -40,17 +39,17 @@ def main():
     
     # Get command line arguments
     args = build_argparser().parse_args()
-    input_file_path = args.input
+    input_path = args.input
     visualize_flag = args.visualization_flag
     
     # Check the input type
-    if input_file_path == "CAM":
+    if input_path == "CAM":
         input_feeder = InputFeeder("cam")
     else:
-        if not os.path.isfile(input_file_path):
+        if not os.path.isfile(input_path):
             print("Input file path not valid")
             exit(1)
-        input_feeder = InputFeeder("video", input_file_path)
+        input_feeder = InputFeeder("video", input_path)
 
     
 
