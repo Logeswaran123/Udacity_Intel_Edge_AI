@@ -115,8 +115,7 @@ python main.py -fd "C:\Program Files (x86)\IntelSWTools\openvino\bin\intel\face-
 
 ![Image_Demo_2](result/image_2.JPG)
 
-## Benchmarks
-### Results
+## Results
 ### Model Performance
 
 I tested all the different performance for different model precisions (FP16/FP32) on CPU device only (since i don't have other devices).
