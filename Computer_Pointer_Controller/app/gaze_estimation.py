@@ -1,19 +1,13 @@
-'''
-This is a sample class for a model. You may choose to use it as-is or make any changes to it.
-This has been provided just to give you an idea of how to structure your model class.
-'''
+# Gaze Estimation
 
 import cv2
 from openvino.inference_engine import IENetwork, IECore
-import warnings
 import math
-warnings.filterwarnings("ignore")
+
 
 
 class GazeEstimationClass:
-    '''
-    Class for the Face Detection Model.
-    '''
+    
     def __init__(self, model_name, device='CPU', extensions=None):
         
         self.model_weights   = model_name + '.bin'
