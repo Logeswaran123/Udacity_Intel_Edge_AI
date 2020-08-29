@@ -1,6 +1,6 @@
 # Udacity Intel Edge AI (OpenVINO)
 
-These projects are done as a part of Udacity Nanodegree Intel® Edge AI for IoT Developers.
+These projects are done as a part of Udacity Nanodegree [Intel® Edge AI for IoT Developers](https://www.udacity.com/course/intel-edge-ai-for-iot-developers-nanodegree--nd131).
 
 The Scholarship Phase took place for 4 months in which 16,000+ applicants competed.
 
