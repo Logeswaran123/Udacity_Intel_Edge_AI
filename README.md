@@ -10,4 +10,4 @@ The projects in this repo are done as a part of the program towards graduation.
 
 Each project is attached with a documentation having description, motivation, requirements, how-to-run and inference from results.
 
-- Happy Learning! :)
+-Happy Learning! :)
